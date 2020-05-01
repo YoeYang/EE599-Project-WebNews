@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
+    <!--    <script src="https://cdn.bootcss.com/jquery/1.12.3/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Loading axios library necessary for making HTTP GET requests -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container-fluid all">
+        <div class="maincontent row">
+            <div ng-show="isSet(1)">
+                <div class="lowest_level">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <th><span style="font-family:trebuchet ms;font-size:1.8em;">News</span></th>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="carousel slide" id="detail">
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading " id="panel_lowest">
+                                                        <ul class="nav nav-tabs sub_nav">
+                                                            <li class="active"><a data-toggle="tab" href="#World"
+                                                                    id="News">World</a></li>
+                                                            <li><a data-toggle="tab" href="#COVID-19">COVID-19</a></li>
+                                                            <li><a data-toggle="tab" href="#Sports">Sports</a></li>
+                                                            <li><a data-toggle="tab" href="#Arts">Arts</a></li>
+                                                            <li><a data-toggle="tab" href="#MyFavorite">My Favorite</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="panel-body tab-content">
+                                                        <div id="World" class="tab-pane fade in active">
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading">
+                                                                    <span id="World-news-1"
+                                                                        style="font-weight:bold ms;font-size:1.5em;">
+                                                                    </span>
+                                                                    <div
+                                                                        class="text-center padding-y-sm btn-lg btn-block">
+                                                                        <input type="button" style="float:right"
+                                                                            name="Favorite" id="Favorite00"
+                                                                            value="Add to My Favorite News"
+                                                                            class="btn btn-primary mt-8"
+                                                                            onclick="addFavorite()" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="panel-body table-responsive">
+                                                                    <!--display news-->
+                                                                    <table class="news1">
+                                                                        <img id="World-news-1-image" alt="image1"
+                                                                            width="300" height="200">
+                                                                        <div id=World-news-1-content> </div>
+                                                                        <a id=World-news-1-link>See Original Post</a>
+                                                                        <div id=World-news-1-date> </div>
+                                                                    </table>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading">
+                                                                    <span id="World-news-2"
+                                                                        style="font-weight:bold ms;font-size:1.5em;"></span>
+                                                                    <div
+                                                                        class="text-center padding-y-sm btn-lg btn-block">
+                                                                        <input type="button" style="float:right"
+                                                                            name="Favorite" id="Favorite01"
+                                                                            value="Add to My Favorite News"
+                                                                            class="btn btn-primary mt-8"
+                                                                            onclick="addFavorite()" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="panel-body table-responsive">
+                                                                    <!--display news-->
+                                                                    <table class="news2">
+
+                                                                        <img id="World-news-2-image" alt="image2"
+                                                                            width="300" height="200">
+
+                                                                        <div id=World-news-2-content></div>
+                                                                        <a id=World-news-2-link>See Original Post</a>
+                                                                        <div id=World-news-2-date> </div>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading">
+                                                                    <span id="World-news-3"
+                                                                        style="font-weight:bold ms;font-size:1.5em;"></span>
+                                                                    <div
+                                                                        class="text-center padding-y-sm btn-lg btn-block">
+                                                                        <input type="button" style="float:right"
+                                                                            name="Favorite" id="Favorite02"
+                                                                            value="Add to My Favorite News"
+                                                                            class="btn btn-primary mt-8"
+                                                                            onclick="addFavorite()" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="panel-body table-responsive">
+                                                                    <!--display news-->
+                                                                    <table class="news3">
+
+                                                                        <img id="World-news-3-image" alt="image3"
+                                                                            width="300" height="200">
+
+                                                                        <div id=World-news-3-content></div>
+                                                                        <a id=World-news-3-link>See Original Post</a>
+                                                                        <div id=World-news-3-date> </div>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div id="Sports" class="tab-pane fade in active">
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading">
+                                                                    <span id="Sports-news-1"
+                                                                        style="font-weight:bold ms;font-size:1.5em;">
+                                                                    </span>
+                                                                    <div
+                                                                        class="text-center padding-y-sm btn-lg btn-block">
+                                                                        <input type="button" style="float:right"
+                                                                            name="Favorite" id="Favorite10"
+                                                                            value="Add to My Favorite News"
+                                                                            class="btn btn-primary mt-8"
+                                                                            onclick="addFavorite()" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="panel-body table-responsive">
+                                                                    <!--display news-->
+                                                                    <table class="news1">
+                                                                        <img id="Sports-news-1-image" alt="image11"
+                                                                            width="300" height="200">
+                                                                        <div id=Sports-news-1-content> </div>
+                                                                        <a id=Sports-news-1-link>See Original Post</a>
+                                                                        <div id=Sports-news-1-date> </div>
+                                                                    </table>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading">
+                                                                    <span id="Sports-news-2"
+                                                                        style="font-weight:bold ms;font-size:1.5em;"></span>
+                                                                    <div
+                                                                        class="text-center padding-y-sm btn-lg btn-block">
+                                                                        <input type="button" style="float:right"
+                                                                            name="Favorite" id="Favorite11"
+                                                                            value="Add to My Favorite News"
+                                                                            class="btn btn-primary mt-8"
+                                                                            onclick="addFavorite()" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="panel-body table-responsive">
+                                                                    <!--display news-->
+                                                                    <table class="news2">
+                                                                        <img id="Sports-news-2-image" alt="image12"
+                                                                            width="300" height="200">
+                                                                        <div id=Sports-news-2-content></div>
+                                                                        <a id=Sports-news-2-link>See Original Post</a>
+                                                                        <div id=Sports-news-2-date> </div>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading">
+                                                                    <span id="Sports-news-3"
+                                                                        style="font-weight:bold ms;font-size:1.5em;"></span>
+                                                                    <div
+                                                                        class="text-center padding-y-sm btn-lg btn-block">
+                                                                        <input type="button" style="float:right"
+                                                                            name="Favorite" id="Favorite12"
+                                                                            value="Add to My Favorite News"
+                                                                            class="btn btn-primary mt-8"
+                                                                            onclick="addFavorite()" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="panel-body table-responsive">
+                                                                    <!--display news-->
+                                                                    <table class="news3">
+                                                                        <img id="Sports-news-3-image" alt="image13"
+                                                                            width="300" height="200">
+                                                                        <div id=Sports-news-3-content></div>
+                                                                        <a id=Sports-news-3-link>See Original Post</a>
+                                                                        <div id=Sports-news-3-date> </div>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div id="COVID-19" class="tab-pane fade in active">
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading">
+                                                                    <span id="COVID-19-news-1"
+                                                                        style="font-weight:bold ms;font-size:1.5em;">
+                                                                    </span>
+                                                                    <div
+                                                                        class="text-center padding-y-sm btn-lg btn-block">
+                                                                        <input type="button" style="float:right"
+                                                                            name="Favorite" id="Favorite30"
+                                                                            value="Add to My Favorite News"
+                                                                            class="btn btn-primary mt-8"
+                                                                            onclick="addFavorite()" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="panel-body table-responsive">
+                                                                    <!--display news-->
+                                                                    <table class="news1">
+                                                                        <img id="COVID-19-news-1-image" alt="image21"
+                                                                            width="300" height="200">
+                                                                        <div id=COVID-19-news-1-content> </div>
+                                                                        <a id=COVID-19-news-1-link>See Original Post</a>
+                                                                        <div id=COVID-19-news-1-date> </div>
+                                                                    </table>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading">
+                                                                    <span id="COVID-19-news-2"
+                                                                        style="font-weight:bold ms;font-size:1.5em;"></span>
+                                                                    <div
+                                                                        class="text-center padding-y-sm btn-lg btn-block">
+                                                                        <input type="button" style="float:right"
+                                                                            name="Favorite" id="Favorite31"
+                                                                            value="Add to My Favorite News"
+                                                                            class="btn btn-primary mt-8"
+                                                                            onclick="addFavorite()" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="panel-body table-responsive">
+                                                                    <!--display news-->
+                                                                    <table class="news2">
+                                                                        <img id="COVID-19-news-2-image" alt="image22"
+                                                                            width="300" height="200">
+                                                                        <div id=COVID-19-news-2-content></div>
+                                                                        <a id=COVID-19-news-2-link>See Original Post</a>
+                                                                        <div id=COVID-19-news-2-date> </div>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading">
+                                                                    <span id="COVID-19-news-3"
+                                                                        style="font-weight:bold ms;font-size:1.5em;"></span>
+                                                                    <div
+                                                                        class="text-center padding-y-sm btn-lg btn-block">
+                                                                        <input type="button" style="float:right"
+                                                                            name="Favorite" id="Favorite32"
+                                                                            value="Add to My Favorite News"
+                                                                            class="btn btn-primary mt-8"
+                                                                            onclick="addFavorite()" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="panel-body table-responsive">
+                                                                    <!--display news-->
+                                                                    <table class="news3">
+                                                                        <img id="COVID-19-news-3-image" alt="image23"
+                                                                            width="300" height="200">
+                                                                        <div id=COVID-19-news-3-content></div>
+                                                                        <a id=COVID-19-news-3-link>See Original Post</a>
+                                                                        <div id=COVID-19-news-3-date> </div>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div id="Arts" class="tab-pane fade in active">
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading">
+                                                                    <span id="Arts-news-1"
+                                                                        style="font-weight:bold ms;font-size:1.5em;">
+                                                                    </span>
+                                                                    <div
+                                                                        class="text-center padding-y-sm btn-lg btn-block">
+                                                                        <input type="button" style="float:right"
+                                                                            name="Favorite" id="Favorite20"
+                                                                            value="Add to My Favorite News"
+                                                                            class="btn btn-primary mt-8"
+                                                                            onclick="addFavorite()" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="panel-body table-responsive">
+                                                                    <!--display news-->
+                                                                    <table class="news1">
+                                                                        <img id="Arts-news-1-image" alt="image31"
+                                                                            width="300" height="200">
+                                                                        <div id=Arts-news-1-content> </div>
+                                                                        <a id=Arts-news-1-link>See Original Post</a>
+                                                                        <div id=Arts-news-1-date> </div>
+                                                                    </table>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading">
+                                                                    <span id="Arts-news-2"
+                                                                        style="font-weight:bold ms;font-size:1.5em;"></span>
+                                                                    <div
+                                                                        class="text-center padding-y-sm btn-lg btn-block">
+                                                                        <input type="button" style="float:right"
+                                                                            name="Favorite" id="Favorite21"
+                                                                            value="Add to My Favorite News"
+                                                                            class="btn btn-primary mt-8"
+                                                                            onclick="addFavorite()" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="panel-body table-responsive">
+                                                                    <!--display news-->
+                                                                    <table class="news2">
+                                                                        <img id="Arts-news-2-image" alt="image32"
+                                                                            width="300" height="200">
+                                                                        <div id=Arts-news-2-content></div>
+                                                                        <a id=Arts-news-2-link>See Original Post</a>
+                                                                        <div id=Arts-news-2-date> </div>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading">
+                                                                    <span id="Arts-news-3"
+                                                                        style="font-weight:bold ms;font-size:1.5em;"></span>
+                                                                    <div
+                                                                        class="text-center padding-y-sm btn-lg btn-block">
+                                                                        <input type="button" style="float:right"
+                                                                            name="Favorite" id="Favorite22"
+                                                                            value="Add to My Favorite News"
+                                                                            class="btn btn-primary mt-8"
+                                                                            onclick="addFavorite()" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="panel-body table-responsive">
+                                                                    <!--display news-->
+                                                                    <table class="news3">
+                                                                        <img id="Arts-news-3-image" alt="image33"
+                                                                            width="300" height="200">
+                                                                        <div id=Arts-news-3-content></div>
+                                                                        <a id=Arts-news-3-link>See Original Post</a>
+                                                                        <div id=Arts-news-3-date> </div>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div id="MyFavorite" class="tab-pane fade in active">
+                                                            <div class="panel panel-default" id="favorite1">
+                                                                <div class="panel-heading">
+                                                                    <span id="MyFavorite-news-1"
+                                                                        style="font-weight:bold ms;font-size:1.5em;">
+                                                                    </span>
+                                                                    <div
+                                                                        class="text-center padding-y-sm btn-lg btn-block">
+                                                                        <input type="button" style="float:right"
+                                                                            name="Remove" id="Remove1" value="Remove"
+                                                                            class="btn btn-primary mt-8"
+                                                                            onclick="removeFavorite()" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="panel-body table-responsive">
+                                                                    <table class="news1">
+                                                                        <img id="MyFavorite-news-1-image" alt="image33"
+                                                                            width="300" height="200">
+                                                                        <div id=MyFavorite-news-1-content> </div>
+                                                                        <a id=MyFavorite-news-1-link>See Original
+                                                                            Post</a>
+                                                                        <div id=MyFavorite-news-1-date> </div>
+                                                                    </table>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="panel panel-default" id="favorite2">
+                                                                <div class="panel-heading">
+                                                                    <span id="MyFavorite-news-2"
+                                                                        style="font-weight:bold ms;font-size:1.5em;">
+                                                                    </span>
+                                                                    <div
+                                                                        class="text-center padding-y-sm btn-lg btn-block">
+                                                                        <input type="button" style="float:right"
+                                                                            name="Remove" id="Remove2" value="Remove"
+                                                                            class="btn btn-primary mt-8"
+                                                                            onclick="removeFavorite()" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="panel-body table-responsive">
+                                                                    <table class="news2">
+                                                                        <img id="MyFavorite-news-2-image" alt="image33"
+                                                                            width="300" height="200">
+                                                                        <div id=MyFavorite-news-2-content></div>
+                                                                        <a id=MyFavorite-news-2-link>See Original
+                                                                            Post</a>
+                                                                        <div id=MyFavorite-news-2-date> </div>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="panel panel-default" id="favorite3">
+                                                                <div class="panel-heading">
+                                                                    <span id="MyFavorite-news-3"
+                                                                        style="font-weight:bold ms;font-size:1.5em;">
+                                                                    </span>
+                                                                    <div
+                                                                        class="text-center padding-y-sm btn-lg btn-block">
+                                                                        <input type="button" style="float:right"
+                                                                            name="Remove" id="Remove3" value="Remove"
+                                                                            class="btn btn-primary mt-8"
+                                                                            onclick="removeFavorite()" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="panel-body table-responsive">
+                                                                    <table class="news3">
+                                                                        <img id="MyFavorite-news-3-image" alt="image33"
+                                                                            width="300" height="200">
+                                                                        <div id=MyFavorite-news-3-content></div>
+                                                                        <a id=MyFavorite-news-3-link>See Original
+                                                                            Post</a>
+                                                                        <div id=MyFavorite-news-3-date> </div>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <span id="no_favorite"
+                                                            style="text-align: center; font-size: large;">
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form_div" id="form_display" style="background: #E8E8E8">
+                    <form id="f" style="height:300px" target="hjytest" onsubmit="return false">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <th><span style="font-family:trebuchet ms;font-size:1.8em;">Search News</span></th>
+                                </thead>
+                            </table>
+                        </div>
+                        <div class="form_item" style="width: 700px; height: 50px; margin: 0 auto;">
+                            Keyword<span style="color:red">* </span><input type="text" name="kw" id="keyword"
+                                style="width: 100px;" required>
+                            From <span style="color:red">* </span><input type="date" name="fr" id="from_date"
+                                style="width: 140px;" required>
+                            To <span style="color:red">* </span><input type="date" name="to" id="to_date"
+                                style="width: 140px" required>
+                            Sort <select name="sort" id="sort" style="width: 100px">
+                                <option value="newest">newest</option>
+                                <option value="oldest">oldest</option>
+                                <option value="relevance">relevance</option>
+                            </select>
+                        </div>
+                        <div class="form_item" style="width: 300px; margin: 0 auto;">
+                            <input type="submit" value="Search" id="search" class="btn btn-primary mt-8"
+                                onclick="search()">
+                            <input type="button" value="Clear" id="clear" class="btn btn-primary mt-8"
+                                onclick="clear()">
+                        </div>
+                        <br />
+                        <br />
+                        <div class="form_item" id="popular-news" style="width: 800px; margin: 0 auto;">
+                            <span id="popular" style="font-size: medium;"> popular topic and search times: </span>
+                            <span id="popular-1" style="font-size: medium; width: 150px; display: inline-block; border :solid 1px grey;
+                            background: #F2F2F2; text-align: center;"> </span>
+                            <span id="popular-2" style="font-size: medium; width: 150px; display: inline-block; border :solid 1px grey;
+                            background: #F2F2F2; text-align: center;"> </span>
+                            <span id="popular-3" style="font-size: medium; width: 150px; display: inline-block; border :solid 1px grey;
+                            background: #F2F2F2; text-align: center;"> </span>
+                        </div>
+                    </form>
+
+                    <div id="res">
+                    </div>
+                </div>
+
+                <span id="notification" style="text-align: center; font-size: large;"> </span>
+
+                <!-- Spinning wheel  -->
+                <span class="loader text-center" id="loader"> </span>
+
+
+                <div ng-show="isSet(4)" id="search_result">
+                    <div class="lowest_level">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <th><span style="font-family:trebuchet ms;font-size:1.8em;">Search Results</span>
+                                    </th>
+                                </thead>
+                            </table>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        <div class="panel panel-default">
+                                            <div class="panel-body tab-content">
+                                                <div id="BreakingNews" class="tab-pane fade in active">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <span style="font-family:trebuchet ms;font-size:1.5em;"
+                                                                id="search-news-1"></span>
+                                                            <div class="text-center padding-y-sm btn-lg btn-block">
+                                                                <input type="button" style="float:right" name="Favorite"
+                                                                    id="Favorite40" value="Add to My Favorite News"
+                                                                    class="btn btn-primary mt-8"
+                                                                    onclick="addFavorite()" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel-body table-responsive">
+                                                            <!--display news-->
+                                                            <table class="news1">
+                                                                <img id="search-news-1-image" alt="image33" width="300"
+                                                                    height="200">
+                                                                <div id="search-news-1-content"> </div>
+                                                                <a id=search-news-1-link>See Original Post</a>
+                                                                <div id="search-news-1-date"> </div>
+                                                            </table>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <span style="font-family:trebuchet ms;font-size:1.5em;"
+                                                                id="search-news-2"></span>
+                                                            <div class="text-center padding-y-sm btn-lg btn-block">
+                                                                <input type="button" style="float:right" name="Favorite"
+                                                                    id="Favorite41" value="Add to My Favorite News"
+                                                                    class="btn btn-primary mt-8"
+                                                                    onclick="addFavorite()" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel-body table-responsive">
+                                                            <!--display news-->
+                                                            <table class="news2">
+                                                                <img id="search-news-2-image" alt="image33" width="300"
+                                                                    height="200">
+                                                                <div id="search-news-2-content"> </div>
+                                                                <a id=search-news-2-link>See Original Post</a>
+                                                                <div id="search-news-2-date"> </div>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <span style="font-family:trebuchet ms;font-size:1.5em;"
+                                                                id="search-news-3"></span>
+                                                            <div class="text-center padding-y-sm btn-lg btn-block">
+                                                                <input type="button" style="float:right" name="Favorite"
+                                                                    id="Favorite42" value="Add to My Favorite News"
+                                                                    class="btn btn-primary mt-8"
+                                                                    onclick="addFavorite()" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel-body table-responsive">
+                                                            <!--display news-->
+                                                            <table class="news3">
+                                                                <img id="search-news-3-image" alt="image33" width="300"
+                                                                    height="200">
+                                                                <div id="search-news-3-content"> </div>
+                                                                <a id=search-news-3-link>See Original Post</a>
+                                                                <div id="search-news-3-date"> </div>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
